@@ -15,17 +15,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
       .json({
         code: exception.getErrorCode(),
         messgae: exception.getErrorMessage(),
-        timestamp: new Date().toISOString(),
-        path: request.url,
       });
     } else {
       response
       .status(status)
       .json({
         code: exception.getStatus(),
-        messgae: null,
-        timestamp: new Date().toISOString(),
-        path: request.url,
+        messgae: '',
       });
     }
   }
