@@ -1,7 +1,7 @@
 import { Catch, ExceptionFilter, HttpException, ArgumentsHost, Logger } from '@nestjs/common';
 import { ApiException } from '../exceptions/api.exception';
 
-@Catch()
+@Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
@@ -23,8 +23,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
       response
       .status(status)
       .json({
-        code: exception.getStatus(),
-        messgae: '',
+        code: status,
+        messgae: exception && exception.message && exception.message.error,
         data: null,
       });
     }

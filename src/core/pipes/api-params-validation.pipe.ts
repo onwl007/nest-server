@@ -25,7 +25,7 @@ export class ApiParamsValidationPipe implements PipeTransform<any> {
 
       // 将未通过验证的字段的错误信息和状态码，以 ApiException 的形式抛给我们的全局异常过滤器
       for (const key of Object.keys(constraints)) {
-        throw new ApiException(contexts[key].apiCode, constraints[key], contexts[key].errorCode, HttpStatus.BAD_REQUEST);
+        throw new ApiException(contexts[key].apiCode, contexts[key].errorCode, constraints[key], HttpStatus.BAD_REQUEST);
       }
     }
     return value;

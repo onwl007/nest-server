@@ -1,10 +1,11 @@
-import { Controller, Post, Body, Get, UseInterceptors } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseInterceptors, UseGuards } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { Cat } from './interfaces/cat.interface';
 import { ApiErrorCode } from '../../common/enums/api-error-code.enum';
 import { ApiCode } from '../../common/enums/api-code.enum';
 import { resFormat } from '../../common/utils';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('cats')
 export class CatsController {
@@ -17,6 +18,7 @@ export class CatsController {
   }
 
   @Get()
+  @UseGuards(AuthGuard())
   async findAll(): Promise<any> {
     const data = await this.catService.findAll();
     return resFormat(ApiCode.GET_ALL_CATS, ApiErrorCode.SUCCESS, '获取全部猫成功', data);

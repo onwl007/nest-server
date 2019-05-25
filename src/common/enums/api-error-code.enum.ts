@@ -13,4 +13,7 @@ export enum ApiErrorCode {
   // Cat 2000
   POST_CAT_ERR = 2001,                             // 新增猫错误
   GET_ALL_CATS_ERR = 2002,                         // 获取全部猫错误
+
+  // Login 3000
+  GET_LOGIN_ERR = 3001,                               // 登录错误
 }
