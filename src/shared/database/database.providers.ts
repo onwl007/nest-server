@@ -1,12 +1,10 @@
 import * as mongoose from 'mongoose';
 import { ConfigService } from '../../config/config.service';
-import { ConfigValidate } from '../../config/config.validate';
-const config = new ConfigService(`env/${ process.env.NODE_ENV }.env`, ConfigValidate.validateInput);
 
 export const databaseProviders = [
   {
     provide: 'DATABASE_CONNECTION',
-    useFactory: async (): Promise<typeof mongoose> =>
-      await mongoose.connect(config.get('MONGODB_URI')),
+    useFactory: async (config: ConfigService): Promise<typeof mongoose> =>
+      await mongoose.connect('mongodb://127.0.0.1:27017/blog'),
   },
 ];

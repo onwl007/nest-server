@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, UseInterceptors, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { Cat } from './interfaces/cat.interface';
