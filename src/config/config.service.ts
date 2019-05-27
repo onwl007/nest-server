@@ -9,7 +9,7 @@ export class ConfigService<T = EnvConfig> {
 
   constructor(filePath: string, validator?: (envConfig: T) => T) {
     // 解析配置文件
-    const configFile: T = dotenv.parse(fs.readFileSync(filePath));
+    const configFile: T = dotenv.parse(fs.readFileSync(`env/${filePath}`));
     // 验证配置参数
     if (typeof validator === 'function') {
       const envConfig: T = validator(configFile);

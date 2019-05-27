@@ -1,15 +1,15 @@
-import { Injectable, Inject, OnModuleInit, HttpStatus } from '@nestjs/common';
+import { Injectable, OnModuleInit, HttpStatus } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { User } from './interfaces/user.interface';
 import { encryptPassword, checkPassword } from '../../common/utils';
 import { ApiException } from '../../core/exceptions/api.exception';
 import { ApiCode } from '../../common/enums/api-code.enum';
 import { ApiErrorCode } from '../../common/enums//api-error-code.enum';
+import { InjectModel } from '_@nestjs_mongoose@6.1.2@@nestjs/mongoose';
 
 @Injectable()
 export class UserService implements OnModuleInit {
   async onModuleInit() {
-    const sds = await this.userModel.findOne({ role: 'admin' });
     if (await this.userModel.findOne({ role: 'admin' })) {
       return;
     }
@@ -27,7 +27,7 @@ export class UserService implements OnModuleInit {
     await admin.save();
   }
 
-  constructor(@Inject('USER_MODEL') private readonly userModel: Model<User>) {}
+  constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
 
   /**
    * 通过用户名查询用户

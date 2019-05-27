@@ -3,14 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
 import { ApiModule } from './api/api.module';
+import { CoreModule } from './core/core.module';
 import { CurrentUserMiddleware } from './core/middleware/current-user.middleware';
-import { EnvConfig } from './config/config.interface';
-import { ConfigValidate } from './config/config.validate';
 
 @Module({
   imports: [
     ApiModule,
     ConfigModule,
+    CoreModule,
   ],
   controllers: [AppController],
   providers: [AppService],
