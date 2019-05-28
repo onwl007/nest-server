@@ -13,4 +13,12 @@ export const ApplicationConfig = {
       password: encryptPassword('i am iron man'),
       mute: false,
   },
+  defaultStrategy: 'jwt',
+  jwtOptions: {
+    secretOrPrivateKey: 'secretKey',
+    signOptions: {
+        expiresIn: 60 * 60 * 2,
+    },
+    secretOrKey: 'secretKey',
+  },
 };

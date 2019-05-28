@@ -6,8 +6,8 @@ export class ApiException extends HttpException {
   private errorCode: ApiErrorCode;
   private apiCode: ApiCode;
 
-  constructor(apiCode: ApiCode, errorCode: ApiErrorCode, errorMessage: string, statuserrorCode: HttpStatus) {
-    super(errorMessage, statuserrorCode);
+  constructor(apiCode: ApiCode, errorCode: ApiErrorCode, errorMessage: string, statusErrorCode: HttpStatus) {
+    super(errorMessage, statusErrorCode);
 
     this.errorMessage = errorMessage;
     this.errorCode = errorCode;

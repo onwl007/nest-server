@@ -1,7 +1,6 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
-
+import { ApplicationConfig } from '../../config';
 import { UserModule } from '../../api/user/user.module';
 import { AuthService } from './auth.service';
 import { AuthStrategy } from './auth.strategy';
@@ -10,10 +9,8 @@ import { AuthStrategy } from './auth.strategy';
     imports: [
         // PassportModule.register({ defaultStrategy: 'jwt' }),
         JwtModule.register({    // 向 nest 容器注册 jwt 模块，并配置密钥和令牌有效期
-            secretOrPrivateKey: 'secretKey',
-            signOptions: {
-                expiresIn: 3600,
-            },
+            secretOrPrivateKey: ApplicationConfig.jwtOptions.secretOrPrivateKey,
+            signOptions: ApplicationConfig.jwtOptions.signOptions,
         }),
         forwardRef(() => UserModule),   // 处理模块间的循环依赖
     ],
