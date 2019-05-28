@@ -1,11 +1,11 @@
 import { Injectable, OnModuleInit, HttpStatus } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { User } from './interfaces/user.interface';
-import { encryptPassword, checkPassword } from '../../common/utils';
-import { ApiException } from '../../core/exceptions/api.exception';
-import { ApiCode } from '../../common/enums/api-code.enum';
-import { ApiErrorCode } from '../../common/enums//api-error-code.enum';
-import { InjectModel } from '_@nestjs_mongoose@6.1.2@@nestjs/mongoose';
+import { checkPassword } from '../../common/utils';
+import { ApiException } from '../../core/exceptions';
+import { ApiErrorCode, ApiCode } from '../../common';
+import { InjectModel } from '@nestjs/mongoose';
+import { ApplicationConfig } from '../../config';
 
 @Injectable()
 export class UserService implements OnModuleInit {
@@ -14,16 +14,7 @@ export class UserService implements OnModuleInit {
       return;
     }
     // 初始化管理员
-    const admin = new this.userModel({
-      username: 'onwl007',
-      name: 'onwl007',
-      email: 'onwl007@126.com',
-      avatar: 'https://github.com/onwl007/Markdown-Photos/blob/master/JavaScript-logo.png',
-      site: 'www.onwl007.com',
-      role: 'admin',
-      password: encryptPassword('i am iron man'),
-      mute: false,
-    });
+    const admin = new this.userModel(ApplicationConfig.initAdmin);
     await admin.save();
   }
 

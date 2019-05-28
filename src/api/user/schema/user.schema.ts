@@ -15,4 +15,4 @@ export const UserSchema = new mongoose.Schema({
   password: { type: String },
   // 是否被禁言
   mute: { type: Boolean, default: false },
-});
+}, { timestamps: true });

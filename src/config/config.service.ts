@@ -10,7 +10,7 @@ export class ConfigService<T = EnvConfig> {
 
   constructor(filePath: string, validator?: (envConfig: T) => T) {
     // 解析配置文件
-    const configFile: T = dotenv.parse(fs.readFileSync(path.join(__dirname, `../../env/${filePath}`)));
+    const configFile: T = dotenv.parse(fs.readFileSync(path.join(__dirname, `../../env/${filePath}`)), { encoding: 'utf8' });
     // 验证配置参数
     if (typeof validator === 'function') {
       const envConfig: T = validator(configFile);
