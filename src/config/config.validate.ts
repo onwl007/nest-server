@@ -10,7 +10,7 @@ export class ConfigValidate {
         .default('development'),
       PORT: Joi.number().default(3000),
       // mongodb配置验证
-      MONGODB_URI: Joi.string().required(),
+      MONGODB_URI: Joi.string().default('mongodb://127.0.0.1:27017/blog'),
     });
 
     const { error, value: validatedEnvConfig } = Joi.validate(

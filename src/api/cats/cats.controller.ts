@@ -1,11 +1,8 @@
 import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
-import { Cat } from './interfaces/cat.interface';
-import { ApiErrorCode } from '../../common/enums/api-error-code.enum';
-import { ApiCode } from '../../common/enums/api-code.enum';
-import { resFormat } from '../../common/utils';
 import { AuthGuard } from '@nestjs/passport';
+import { resFormat, ApiCode, ApiErrorCode } from '../../common';
 
 @Controller('cats')
 export class CatsController {

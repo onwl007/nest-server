@@ -1,4 +1,4 @@
-import { Injectable, PipeTransform, ArgumentMetadata, BadRequestException, HttpStatus } from '@nestjs/common';
+import { Injectable, PipeTransform, ArgumentMetadata, HttpStatus } from '@nestjs/common';
 import { validate } from 'class-validator';
 import { plainToClass } from 'class-transformer';
 import { ApiException } from '../exceptions/api.exception';
@@ -17,7 +17,6 @@ export class ApiParamsValidationPipe implements PipeTransform<any> {
     const object = plainToClass(metatype, value);
     const errors = await validate(object);
     if (errors.length > 0) {
-      // throw new BadRequestException('validation failed');
       // 获取到第一个没有通过验证的错误对象
       const error = errors.shift();
       const constraints = error.constraints;

@@ -1,9 +1,7 @@
 import { Controller, Inject, Body, Post } from '@nestjs/common';
 import { AuthService } from '../../core/auth/auth.service';
 import { UserService } from './user.service';
-import { resFormat } from '../../common/utils';
-import { ApiCode } from '../../common/enums/api-code.enum';
-import { ApiErrorCode } from '../../common/enums/api-error-code.enum';
+import { resFormat, ApiCode, ApiErrorCode } from '../../common';
 
 @Controller('users')
 export class UserController {
