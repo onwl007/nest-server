@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
+import * as path from 'path';
 
 import { EnvConfig } from './config.interface';
 
@@ -9,7 +10,7 @@ export class ConfigService<T = EnvConfig> {
 
   constructor(filePath: string, validator?: (envConfig: T) => T) {
     // 解析配置文件
-    const configFile: T = dotenv.parse(fs.readFileSync(`env/${filePath}`));
+    const configFile: T = dotenv.parse(fs.readFileSync(path.join(__dirname, `../../env/${filePath}`)));
     // 验证配置参数
     if (typeof validator === 'function') {
       const envConfig: T = validator(configFile);
