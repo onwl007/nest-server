@@ -3,6 +3,7 @@
  */
 
 import * as mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
 export const TagSchema = new mongoose.Schema({
   // 名称

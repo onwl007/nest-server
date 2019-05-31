@@ -3,6 +3,7 @@
  */
 
 import * as mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
 export const ArticleSchema = new mongoose.Schema({
   // 标题
@@ -12,9 +13,9 @@ export const ArticleSchema = new mongoose.Schema({
   // 文章摘要
   description: { type: String },
   // 标签
-  tag: [{ type: mongoose.Types.ObjectId, ref: 'Tag' }],
+  tag: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
   // 分类
-  category: { type: mongoose.Types.ObjectId, ref: 'Category' },
+  category: { type: Schema.Types.ObjectId, ref: 'Category' },
   // 内容
   content: { type: String, required: true },
   // markdown 渲染后的 html 内容

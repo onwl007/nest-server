@@ -3,6 +3,7 @@
  */
 
 import * as mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
 export const SettingSchema = new mongoose.Schema({
   // 站点设置
@@ -10,7 +11,7 @@ export const SettingSchema = new mongoose.Schema({
     logo: { type: String },
     welcome: { type: String, default: '' },
     links: [{
-      id: { type: mongoose.Types.ObjectId, required: true },
+      id: { type: Schema.Types.ObjectId, required: true },
       name: { type: String, required: true },
       avatar: { type: String, default: '' },
       slogan: { type: String, default: '' },
@@ -26,7 +27,7 @@ export const SettingSchema = new mongoose.Schema({
     skill: [{ type: String }],
     location: { type: String, default: '' },
     company: { type: String, default: '' },
-    user: { type: mongoose.Types.ObjectId, ref: 'User' },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
     github: { type: Object, default: {} },
 },
 }, { timestamps: true });
