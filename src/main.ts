@@ -10,6 +10,7 @@ async function bootstrap() {
   const config: ConfigService<any> = app.get(ConfigService);
   app.useGlobalPipes(new ApiParamsValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.setGlobalPrefix('api');
 
   await app.listen(config.get('PORT'), () => {
     Logger.log(`Starting Nest.js Application on ${ config.get('PORT') } port...`);

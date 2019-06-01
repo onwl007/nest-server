@@ -29,5 +29,5 @@ export const SettingSchema = new mongoose.Schema({
     company: { type: String, default: '' },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     github: { type: Object, default: {} },
-},
+  },
 }, { timestamps: true });
