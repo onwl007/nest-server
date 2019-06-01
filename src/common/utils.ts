@@ -9,9 +9,9 @@ import { createHash } from 'crypto';
  */
 export function resFormat(api: number, code: number, message: string, data: any) {
   const result = {
-    code,
-    message,
-    data,
+    code: code,
+    message: message,
+    data: data,
   };
   Logger.log(`===api: ${api} ===code: ${code} ===message: ${message}`);
   return result;
