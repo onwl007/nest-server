@@ -15,5 +15,12 @@ export enum ApiErrorCode {
   GET_ALL_CATS_ERR = 2002,                         // 获取全部猫错误
 
   // Login 3000
-  GET_LOGIN_ERR = 3001,                               // 登录错误
+  GET_LOGIN_ERR = 3001,                            // 登录错误
+
+  // Category 5000
+  GET_ALL_CATEGORIES_ERR = 5001,                   // 获取全部分类出错
+  GET_CATEGORY_BY_ID_ERR = 5002,                   // 获取分类详情出错
+  POST_CATEGORY_ERR = 5003,                        // 创建分类
+  PUT_CATEGORY_ERR = 5004,                         // 更新分类
+  DELETE_CATEGORY_ERR = 5005,                      // 删除分类
 }

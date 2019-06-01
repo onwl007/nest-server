@@ -9,8 +9,8 @@ export class CatsController {
   constructor(private readonly catService: CatsService) {}
 
   @Post()
-  async create(@Body() createCatDto: CreateCatDto) {
-    this.catService.create(createCatDto);
+  async create(@Body() entity: CreateCatDto) {
+    this.catService.create(entity);
     return resFormat(ApiCode.POST_CAT, ApiErrorCode.SUCCESS, '新增猫成功', null);
   }
 

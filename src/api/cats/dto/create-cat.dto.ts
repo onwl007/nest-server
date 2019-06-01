@@ -1,16 +1,5 @@
-import { ApiErrorCode } from '../../../common/enums/api-error-code.enum';
 import { IsInt, IsString, IsNotEmpty, Min, Max } from 'class-validator';
-import { ApiCode } from '../../../common/enums/api-code.enum';
-
-function getError(msg, code, api) {
-  return {
-    message: msg,
-    context: {
-      apiCode: api,
-      errorCode: code,
-    },
-  };
-}
+import { ApiCode, ApiErrorCode, getError } from '../../../common';
 
 export class CreateCatDto {
   @IsNotEmpty(getError('姓名不可缺少', ApiErrorCode.PARAM_ERR, ApiCode.POST_CAT))

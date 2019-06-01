@@ -34,3 +34,19 @@ export function checkPassword(password: string, encryptedPassword): boolean {
   const currentPass = this.encryptPassword(password);
   return currentPass === encryptedPassword;
 }
+
+/**
+ * 参数检查
+ * @param msg 错误信息
+ * @param code 错误码
+ * @param api 接口吗
+ */
+export function getError(msg, code, api) {
+  return {
+    message: msg,
+    context: {
+      apiCode: api,
+      errorCode: code,
+    },
+  };
+}
