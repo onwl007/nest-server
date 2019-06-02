@@ -12,8 +12,8 @@ export class UserController {
 
   @Post('login')
   async login(@Body() body: { username: string, password: string }): Promise<any> {
-      await this.userService.login(body.username, body.password);
-      const accessToken = await this.authService.createToken({ username: body.username });
-      return resFormat(ApiCode.GET_LOGIN, ApiErrorCode.SUCCESS, '登录成功', { token: accessToken });
+    await this.userService.login(body.username, body.password);
+    const accessToken = await this.authService.createToken({ username: body.username });
+    return resFormat(ApiCode.GET_LOGIN, ApiErrorCode.SUCCESS, '登录成功', { token: accessToken });
   }
 }

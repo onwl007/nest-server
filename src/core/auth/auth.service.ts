@@ -16,6 +16,6 @@ export class AuthService {
     }
 
     async validateUser(payload: { username: string }): Promise<User> {
-        return await this.userService.findOneByUserName(payload.username);
+        return await this.userService.findOneByUserName(payload.username, '_id username roles');
     }
 }

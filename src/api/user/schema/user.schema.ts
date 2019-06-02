@@ -17,7 +17,7 @@ export const UserSchema = new mongoose.Schema({
   // 站点
   site: { type: String },
   // 角色 admin 管理员 | user 普通用户
-  role: {
+  roles: {
       type: String,
       enum: ['admin', 'user'],
       default: 'user',

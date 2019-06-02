@@ -1,9 +1,11 @@
-import { Controller, Get, Inject, Query, UsePipes, Param, Post, Body, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Inject, Query, Param, Post, Body, Put, Delete, UseGuards } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { resFormat, ApiCode, ApiErrorCode } from '../../common';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('categories')
+@UseGuards(AuthGuard())
 export class CategoryController {
   constructor(
     @Inject(CategoryService) private readonly categoryService: CategoryService,

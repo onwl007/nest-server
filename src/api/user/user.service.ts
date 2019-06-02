@@ -10,7 +10,7 @@ import { ApplicationConfig } from '../../config';
 @Injectable()
 export class UserService implements OnModuleInit {
   async onModuleInit() {
-    if (await this.userModel.findOne({ role: 'admin' })) {
+    if (await this.userModel.findOne({ roles: 'admin' })) {
       return;
     }
     // 初始化管理员
@@ -24,8 +24,8 @@ export class UserService implements OnModuleInit {
    * 通过用户名查询用户
    * @param username 用户名
    */
-  async findOneByUserName(username: string): Promise<User> {
-    return await this.userModel.findOne({ username });
+  async findOneByUserName(username: string, project?: string): Promise<User> {
+    return await this.userModel.findOne({ username: username }, project);
   }
 
   /**

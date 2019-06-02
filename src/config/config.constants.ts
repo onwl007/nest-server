@@ -9,7 +9,7 @@ export const ApplicationConfig = {
       email: 'onwl007@126.com',
       avatar: 'https://github.com/onwl007/Markdown-Photos/blob/master/JavaScript-logo.png',
       site: 'www.onwl007.com',
-      role: 'admin',
+      roles: 'admin',
       password: encryptPassword('i am iron man'),
       mute: false,
   },
