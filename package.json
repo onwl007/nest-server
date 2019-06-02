@@ -17,7 +17,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json --verbose --detectOpenHandles --forceExit"
   },
   "dependencies": {
     "@nestjs/common": "^6.0.0",
@@ -26,7 +26,6 @@
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/passport": "^6.1.0",
     "@nestjs/platform-express": "^6.0.0",
-    "@nestjs/swagger": "^3.0.2",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.9.1",
     "crypto": "^1.0.1",
@@ -36,8 +35,7 @@
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
-    "rxjs": "^6.3.3",
-    "swagger-ui-express": "^4.0.5"
+    "rxjs": "^6.3.3"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",

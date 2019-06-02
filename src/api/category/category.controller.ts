@@ -31,8 +31,8 @@ export class CategoryController {
    */
   @Post()
   async createOne(@Body() entity: CreateCategoryDto): Promise<any> {
-    this.categoryService.create(entity);
-    return resFormat(ApiCode.POST_CATEGORY, ApiErrorCode.SUCCESS, '创建分类成功', null);
+    const category = await this.categoryService.create(entity);
+    return resFormat(ApiCode.POST_CATEGORY, ApiErrorCode.SUCCESS, '创建分类成功', { categoryId: category._id });
   }
 
   /**
