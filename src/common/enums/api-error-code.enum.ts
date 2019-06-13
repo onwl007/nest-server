@@ -18,9 +18,16 @@ export enum ApiErrorCode {
   GET_LOGIN_ERR = 3001,                            // 登录错误
 
   // Category 5000
-  GET_ALL_CATEGORIES_ERR = 5001,                   // 获取全部分类出错
-  GET_CATEGORY_BY_ID_ERR = 5002,                   // 获取分类详情出错
-  POST_CATEGORY_ERR = 5003,                        // 创建分类
-  PUT_CATEGORY_ERR = 5004,                         // 更新分类
-  DELETE_CATEGORY_ERR = 5005,                      // 删除分类
+  GET_ALL_CATEGORIES_ERR = 5001,                   // 获取全部分类错误
+  GET_CATEGORY_BY_ID_ERR = 5002,                   // 获取分类详情错误
+  POST_CATEGORY_ERR = 5003,                        // 创建分类错误
+  PUT_CATEGORY_ERR = 5004,                         // 更新分类错误
+  DELETE_CATEGORY_ERR = 5005,                      // 删除分类错误
+
+  // Tag
+  GET_ALL_TAGS_ERR = 8001,                         // 获取全部标签出错误
+  POST_TAG_ERR = 8002,                             // 创建标签错误
+  GET_TAG_ERR = 8003,                              // 根据 ID 获取标签详情错误
+  PUT_TAG_ERR = 8004,                              // 更新标签错误
+  DELETE_TAG_ERR = 8005,                           // 删除标签错误
 }

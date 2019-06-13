@@ -19,4 +19,9 @@ export enum ApiCode {
   // Comment 6000
   // Setting 7000
   // Tag 8000
+  GET_ALL_TAGS = 8001,                 // 获取全部标签
+  POST_TAG = 8002,                     // 创建标签
+  GET_TAG = 8003,                      // 根据 ID 获取标签详情
+  PUT_TAG = 8004,                      // 更新标签
+  DELETE_TAG = 8005,                   // 删除标签
 }
