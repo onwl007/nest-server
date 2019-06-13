@@ -17,7 +17,7 @@ export class CategoryController {
    * @param keyword 关键词
    */
   @Get()
-  async findAll(@Query('keyword') keyword: string): Promise<any> {
+  async findAll(@Query('keyword') keyword?: string): Promise<any> {
     const query: any = {};
     if (keyword) {
       query.name = { $regex: keyword };
