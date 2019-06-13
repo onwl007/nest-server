@@ -61,7 +61,6 @@ describe('CategoryController (e2e)', () => {
   });
 
   it('/GET /api/categories/:id', done => {
-    
     request(app.getHttpServer())
       .get('/categories/5cf27fa76bb399134ef42b1d')
       .expect(200)
