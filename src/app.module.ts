@@ -1,20 +1,8 @@
-import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
-import { ConfigModule } from './config';
-import { ApiModule } from './api/api.module';
-import { CoreModule } from './core/core.module';
-import { CurrentUserMiddleware } from './core/middleware';
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
 
 @Module({
-  imports: [
-    ApiModule,
-    ConfigModule,
-    CoreModule,
-  ],
+  imports: [],
+  controllers: [AppController],
 })
-export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(CurrentUserMiddleware)
-      .forRoutes({ path: '*', method: RequestMethod.ALL });
-  }
-}
+export class AppModule {}
