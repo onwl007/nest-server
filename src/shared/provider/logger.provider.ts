@@ -1,3 +1,9 @@
+/**
+ * @file logger provider
+ * @description winston 日志工具提供者
+ * @date 2020-01-04 23:55:57
+ * @author onwl007 <https://github.com/onwl007>
+ */
 import * as path from 'path';
 import * as winston from 'winston';
 import * as DailyRotateFile from 'winston-daily-rotate-file';

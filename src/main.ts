@@ -1,10 +1,15 @@
+/**
+ * @file app entry
+ * @description 入口文件
+ * @date 2020-01-04 23:59:21
+ * @author onwl007 <https://github.com/onwl007>
+ */
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as rateLimit from 'express-rate-limit';
 import * as bodyParser from 'body-parser';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { LoggerInterceptor } from './core/interceptors/logger.interceptors';
 
 // 替换 console 为更统一友好的
 const { log, warn, info } = console;
@@ -21,7 +26,6 @@ async function bootstrap() {
   app.use(compression());
   app.use(bodyParser.json({ limit: '1mb' }));
   app.use(rateLimit({ max: 1000, windowMs: 15 * 60 * 1000 }));
-  // app.useGlobalInterceptors(new LoggerInterceptor());
   await app.listen(3000, () => {
     console.log(`Nest-server run port at ${3000}`);
   });

@@ -1,3 +1,9 @@
+/**
+ * @file database provider
+ * @description 数据库连接提供者
+ * @date 2020-01-04 23:55:30
+ * @author onwl007 <https://github.com/onwl007>
+ */
 import * as mongoose from 'mongoose';
 import { Logger } from 'winston';
 import {
