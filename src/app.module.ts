@@ -9,9 +9,11 @@ import { AppController } from './app.controller';
 import { ProviderModule } from './shared/provider/provider.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggerInterceptor } from './core/interceptors/logger.interceptors';
+import { ConfigModule } from './shared/config/config.module';
+import { ConfigService } from './shared/config/config.service';
 
 @Module({
-  imports: [ProviderModule],
+  imports: [ProviderModule, ConfigModule],
   controllers: [AppController],
   providers: [
     {
@@ -20,4 +22,9 @@ import { LoggerInterceptor } from './core/interceptors/logger.interceptors';
     },
   ],
 })
-export class AppModule {}
+export class AppModule {
+  static port: number;
+  constructor(private readonly config: ConfigService) {
+    AppModule.port = Number(this.config.get('PORT'));
+  }
+}

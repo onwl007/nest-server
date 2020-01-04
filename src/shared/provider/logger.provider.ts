@@ -8,6 +8,7 @@ import * as path from 'path';
 import * as winston from 'winston';
 import * as DailyRotateFile from 'winston-daily-rotate-file';
 import { WINSTON_LOGGER_TOKEN } from '../../core/constants/system.constants';
+import { isDevMode } from '../../app.environment';
 
 export const loggerProvider = {
   provide: WINSTON_LOGGER_TOKEN,
@@ -25,7 +26,7 @@ export const loggerProvider = {
     const consoleFormat = winston.format.printf(info => {
       return colorizer.colorize(
         info.level,
-        `[${info.label}] - ${info.timestamp} - [${info.level.toUpperCase()}]: ${
+        `[${info.label}] ${info.timestamp} [${info.level.toUpperCase()}]: ${
           info.message
         } ${info.stack ? JSON.stringify(info.stack) : ''}`,
       );
@@ -36,9 +37,7 @@ export const loggerProvider = {
       errorStackTracerFormat(),
       winston.format.splat(),
       winston.format.simple(),
-      process.env.NODE_ENV === 'production'
-        ? winston.format.prettyPrint()
-        : consoleFormat,
+      isDevMode ? consoleFormat : winston.format.prettyPrint(),
     );
     if (process.env.NODE_ENV !== 'production') {
       return winston.createLogger({

@@ -10,15 +10,17 @@ import {
   DB_CONNECTION_TOKEN,
   WINSTON_LOGGER_TOKEN,
 } from '../../core/constants/system.constants';
+import { ConfigService } from '../config/config.service';
 
 export const databaseProvider = {
-  inject: [WINSTON_LOGGER_TOKEN],
+  inject: [WINSTON_LOGGER_TOKEN, ConfigService],
   provide: DB_CONNECTION_TOKEN,
-  useFactory: async (logger: Logger) => {
+  useFactory: async (logger: Logger, config: ConfigService) => {
     const RECONNET_INTERVAL = 6000;
+    const { uri, username, password } = config.getMongoConfig();
 
     const connection = () => {
-      return mongoose.connect('mongodb://localhost:27017/blog', {
+      return mongoose.connect(uri, {
         useNewUrlParser: true,
         useCreateIndex: true,
         poolSize: 20,

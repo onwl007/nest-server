@@ -1,0 +1,36 @@
+/**
+ * @file config service
+ * @description 配置服务
+ * @date 2020-01-05 00:19:27
+ * @author onwl007 <https://github.com/onwl007>
+ */
+
+import * as fs from 'fs';
+import * as path from 'path';
+import * as dotenv from 'dotenv';
+import { Injectable } from '@nestjs/common';
+import { isDevMode } from '../../app.environment';
+
+@Injectable()
+export class ConfigService {
+  private readonly config: { [x: string]: any };
+  constructor() {
+    const filePath: string = path.join(
+      __dirname,
+      `../../../${isDevMode ? 'development' : 'production'}.env`,
+    );
+    this.config = dotenv.parse(fs.readFileSync(filePath, { encoding: 'utf8' }));
+  }
+
+  public getMongoConfig(): any {
+    return {
+      uri: this.config.MONGO_URI,
+      username: this.config.MONGO_USERNAME,
+      password: this.config.MONGO_PASSWORD,
+    };
+  }
+
+  public get(key: string): string {
+    return this.config[key] || '';
+  }
+}

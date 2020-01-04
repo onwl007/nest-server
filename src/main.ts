@@ -8,16 +8,46 @@ import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as rateLimit from 'express-rate-limit';
 import * as bodyParser from 'body-parser';
+import * as moment from 'moment';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { environment } from './app.environment';
 
 // 替换 console 为更统一友好的
 const { log, warn, info } = console;
 Object.assign(global.console, {
-  log: (...args) => log('[log]', '[nest-server]', ...args),
-  warn: (...args) => warn('\x1b[33m%s', '[warn]', '[nest-server]', ...args),
-  info: (...args) => info('\x1b[34m%s', '[info]', '[nest-server]', ...args),
-  error: (...args) => info('\x1b[31m%s', '[error]', '[nest-server]', ...args),
+  log: (...args) =>
+    log(
+      '\x1b[32m%s',
+      '[nest-server]',
+      `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+      '[LOG]',
+      ...args,
+    ), // 绿色
+  warn: (...args) =>
+    warn(
+      '\x1b[33m%s',
+      '[nest-server]',
+      `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+      '[WARN]',
+      ...args,
+    ), // 黄色
+  info: (...args) =>
+    info(
+      '\x1b[34m%s',
+      '[nest-server]',
+      `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+      '[INFO]',
+      ...args,
+    ), // 蓝色
+  error: (...args) =>
+    info(
+      '\x1b[31m%s',
+      '[nest-server]',
+      `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+      '[ERROR]',
+      ...args,
+    ), // 红色
 });
 
 async function bootstrap() {
@@ -26,8 +56,10 @@ async function bootstrap() {
   app.use(compression());
   app.use(bodyParser.json({ limit: '1mb' }));
   app.use(rateLimit({ max: 1000, windowMs: 15 * 60 * 1000 }));
-  await app.listen(3000, () => {
-    console.log(`Nest-server run port at ${3000}`);
+  await app.listen(AppModule.port, () => {
+    console.log(
+      `Nest server started on port ${AppModule.port} with env: ${environment}`,
+    );
   });
 }
 bootstrap();

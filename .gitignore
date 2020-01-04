@@ -3,6 +3,7 @@
 /node_modules
 .vscode
 env
+*.env
 .package-lock.json
 
 # Logs
