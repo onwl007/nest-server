@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { DatabaseModule } from './shared/database/database.module';
-import { ProviderModule } from './core/providers/provider.module';
+import { ProviderModule } from './shared/provider/provider.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggerInterceptor } from './core/interceptors/logger.interceptors';
 
 @Module({
-  imports: [DatabaseModule, ProviderModule],
+  imports: [ProviderModule],
   controllers: [AppController],
   providers: [
     {
