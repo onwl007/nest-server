@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { environment } from './app.environment';
+import { HttpExceptionFilter } from './core/filters/exception.filter';
 
 // 替换 console 为更统一友好的
 const { log, warn, info } = console;
@@ -56,6 +57,7 @@ async function bootstrap() {
   app.use(compression());
   app.use(bodyParser.json({ limit: '1mb' }));
   app.use(rateLimit({ max: 1000, windowMs: 15 * 60 * 1000 }));
+  app.useGlobalFilters(new HttpExceptionFilter());
   await app.listen(AppModule.port, () => {
     console.log(
       `Nest server started on port ${AppModule.port} with env: ${environment}`,
