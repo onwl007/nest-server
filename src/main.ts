@@ -1,9 +1,10 @@
-/**
- * @file app entry
- * @description 入口文件
- * @date 2020-01-04 23:59:21
- * @author onwl007 <https://github.com/onwl007>
+/*
+ * @Author: onwl007
+ * @Date: 2020-01-05 16:24:23
+ * @Last Modified by: onwl007
+ * @Last Modified time: 2020-01-05 16:32:28
  */
+
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as rateLimit from 'express-rate-limit';
@@ -13,6 +14,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { environment } from './app.environment';
 import { HttpExceptionFilter } from './core/filters/exception.filter';
+import { ValidationPipe } from './core/pipes/validation.pipe';
 
 // 替换 console 为更统一友好的
 const { log, warn, info } = console;
@@ -58,6 +60,7 @@ async function bootstrap() {
   app.use(bodyParser.json({ limit: '1mb' }));
   app.use(rateLimit({ max: 1000, windowMs: 15 * 60 * 1000 }));
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.useGlobalPipes(new ValidationPipe());
   await app.listen(AppModule.port, () => {
     console.log(
       `Nest server started on port ${AppModule.port} with env: ${environment}`,
