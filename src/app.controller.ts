@@ -1,9 +1,11 @@
-/**
- * @file app controller
- * @description 主页控制器
- * @date 2020-01-04 23:57:04
- * @author onwl007 <https://github.com/onwl007>
+/*
+ * @Desc: 主页控制器
+ * @Author: onwl007 <https://github.com/onwl007>
+ * @Date: 2020-01-04 23:57:04
+ * @Last Modified by: onwl007
+ * @Last Modified time: 2020-01-05 16:38:21
  */
+
 import { Get, Controller } from '@nestjs/common';
 
 @Controller()

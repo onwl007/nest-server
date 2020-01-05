@@ -1,8 +1,9 @@
 /*
+ * @Desc: 参数验证器
  * @Author: onwl007 <https://github.com/onwl007>
  * @Date: 2020-01-05 16:30:32
  * @Last Modified by: onwl007
- * @Last Modified time: 2020-01-05 16:30:32
+ * @Last Modified time: 2020-01-05 16:39:55
  */
 
 import { validate } from 'class-validator';

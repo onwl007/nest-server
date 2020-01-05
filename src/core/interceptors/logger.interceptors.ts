@@ -1,9 +1,11 @@
-/**
- * @file logger inteceptor
- * @description 日志拦截器
- * @date 2020-01-04 23:54:45
- * @author onwl007 <https://github.com/onwl007>
+/*
+ * @Desc: 日志拦截器
+ * @Author: onwl007 <https://github.com/onwl007>
+ * @Date: 2020-01-04 23:54:45
+ * @Last Modified by: onwl007
+ * @Last Modified time: 2020-01-05 16:35:52
  */
+
 import {
   NestInterceptor,
   Injectable,

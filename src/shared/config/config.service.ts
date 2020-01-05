@@ -1,8 +1,9 @@
-/**
- * @file config service
- * @description 配置服务
- * @date 2020-01-05 00:19:27
- * @author onwl007 <https://github.com/onwl007>
+/*
+ * @Desc: 配置服务
+ * @Author: onwl007 <https://github.com/onwl007>
+ * @Date: 2020-01-05 00:19:27
+ * @Last Modified by: onwl007
+ * @Last Modified time: 2020-01-05 16:36:43
  */
 
 import * as fs from 'fs';

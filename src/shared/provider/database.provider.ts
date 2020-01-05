@@ -1,9 +1,11 @@
-/**
- * @file database provider
- * @description 数据库连接提供者
- * @date 2020-01-04 23:55:30
- * @author onwl007 <https://github.com/onwl007>
+/*
+ * @Desc: 数据库连接提供者
+ * @Author: onwl007 <https://github.com/onwl007>
+ * @Date: 2020-01-04 23:55:30
+ * @Last Modified by: onwl007
+ * @Last Modified time: 2020-01-05 16:37:24
  */
+
 import * as mongoose from 'mongoose';
 import { Logger } from 'winston';
 import {

@@ -1,8 +1,9 @@
-/**
- * @file http interface
- * @description HTTP 响应接口
- * @date 2020-01-05 09:58:17
- * @author onwl007 <https://github.com/onwl007>
+/*
+ * @Desc: HTTP 响应接口
+ * @Author: onwl007 <https://github.com/onwl007>
+ * @Date: 2020-01-05 09:58:17
+ * @Last Modified by: onwl007
+ * @Last Modified time: 2020-01-05 16:36:33
  */
 
 export enum EHttpStatus {
