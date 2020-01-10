@@ -37,6 +37,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.0.0",
+    "geoip-lite": "^1.4.0",
     "helmet": "^3.21.2",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
