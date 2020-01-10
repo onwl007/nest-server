@@ -31,14 +31,16 @@ export const databaseProvider = {
     const { uri, username, password } = config.getMongoConfig();
 
     const connection = () => {
-      return mongoose.connect(uri, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        poolSize: 20,
-        autoReconnect: true,
-        reconnectInterval: RECONNET_INTERVAL,
-        reconnectTries: Number.MAX_SAFE_INTEGER,
-      });
+      return mongoose.connect(
+        uri,
+        {
+          useNewUrlParser: true,
+          useCreateIndex: true,
+          autoReconnect: true,
+          reconnectInterval: RECONNET_INTERVAL,
+        },
+        error => {},
+      );
     };
 
     mongoose.connection.on('connecting', () => {
@@ -58,7 +60,7 @@ export const databaseProvider = {
       logger.error('数据库发生异常！', error);
       mongoose.disconnect();
       if (!isDevMode) {
-        sendAlarmMail(String(error));
+        sendAlarmMail(error && error.message);
       }
     });
 
