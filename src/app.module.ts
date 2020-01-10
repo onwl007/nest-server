@@ -13,9 +13,10 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggerInterceptor } from './core/interceptors/logger.interceptors';
 import { ConfigModule } from './shared/config/config.module';
 import { ConfigService } from './shared/config/config.service';
+import { HelperModule } from './shared/helper/helper.module';
 
 @Module({
-  imports: [ProviderModule, ConfigModule],
+  imports: [ProviderModule, ConfigModule, HelperModule],
   controllers: [AppController],
   providers: [
     {
