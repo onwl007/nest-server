@@ -2,7 +2,11 @@
   "name": "nest-server",
   "version": "1.0.0",
   "description": "",
-  "author": "",
+  "author": {
+    "name": "onwl007",
+    "email": "onwl007@126.com",
+    "url": "https://github.com/onwl007"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
