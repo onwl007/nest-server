@@ -48,9 +48,6 @@ export class EmailService {
     });
   }
 
-  /**
-   * sendMail
-   */
   public sendMail(mailOptions: IEmailOptions) {
     if (!this.clientIsValid) {
       this.logger.warn('邮件客户端初始化未成功，发送邮件被拒绝');

@@ -1,11 +1,3 @@
-/*
- * @Desc: app 主模块
- * @Author: onwl007 <https://github.com/onwl007>
- * @Date: 2020-01-04 23:57:44
- * @Last Modified by: onwl007
- * @Last Modified time: 2020-01-05 16:38:55
- */
-
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { ProviderModule } from './shared/provider/provider.module';

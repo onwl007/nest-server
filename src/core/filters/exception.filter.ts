@@ -1,11 +1,3 @@
-/*
- * @Desc: 异常过滤器
- * @Author: onwl007 <https://github.com/onwl007>
- * @Date: 2020-01-05 10:35:58
- * @Last Modified by: onwl007
- * @Last Modified time: 2020-01-05 16:40:46
- */
-
 import * as _ from 'lodash';
 import { Request, Response } from 'express';
 import {
