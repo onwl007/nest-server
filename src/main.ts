@@ -47,7 +47,7 @@ Object.assign(global.console, {
 });
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { logger: false });
   app.use(helmet());
   app.use(compression());
   app.use(bodyParser.json({ limit: '1mb' }));
