@@ -26,7 +26,7 @@ export const loggerProvider = {
       );
     });
     const logFormat = winston.format.combine(
-      winston.format.label({ label: 'nest-server' }),
+      winston.format.label({ label: 'NEST-SERVER' }),
       winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
       errorStackTracerFormat(),
       winston.format.splat(),
