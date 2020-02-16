@@ -15,7 +15,7 @@ Object.assign(global.console, {
   log: (...args) =>
     log(
       '\x1b[32m%s',
-      '[nest-server]',
+      '[NEST-SERVER]',
       `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
       '[LOG]',
       ...args,
@@ -23,7 +23,7 @@ Object.assign(global.console, {
   warn: (...args) =>
     warn(
       '\x1b[33m%s',
-      '[nest-server]',
+      '[NEST-SERVER]',
       `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
       '[WARN]',
       ...args,
@@ -31,7 +31,7 @@ Object.assign(global.console, {
   info: (...args) =>
     info(
       '\x1b[34m%s',
-      '[nest-server]',
+      '[NEST-SERVER]',
       `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
       '[INFO]',
       ...args,
@@ -39,7 +39,7 @@ Object.assign(global.console, {
   error: (...args) =>
     info(
       '\x1b[31m%s',
-      '[nest-server]',
+      '[NEST-SERVER]',
       `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
       '[ERROR]',
       ...args,

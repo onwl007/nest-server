@@ -26,8 +26,8 @@ export class AkismetService {
     private readonly configService: ConfigService,
     @Inject(WINSTON_LOGGER_TOKEN) private readonly logger: Logger,
   ) {
-    this.initClient();
-    this.initVerify();
+    // this.initClient();
+    // this.initVerify();
   }
 
   // 初始化客户端
