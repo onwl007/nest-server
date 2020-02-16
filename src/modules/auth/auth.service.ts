@@ -17,7 +17,7 @@ export class AuthService {
 
   public async validateUser(username: string): Promise<any> {
     const user = await this.userModel
-      .findOne(username)
+      .findOne({ username })
       .lean()
       .exec();
     return user ? user : null;
