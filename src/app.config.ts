@@ -1,4 +1,4 @@
-import * as path from 'path';
+import { argv } from 'yargs';
 import * as packageJson from '../package.json';
 
 export const INFO = {
@@ -19,6 +19,12 @@ export const INFO = {
     'Nginx',
     'Redis',
   ],
+};
+
+// npm run start:dev -- --auth_-key testkey
+export const Auth = {
+  jwtTokenSecret: argv.auth_key || 'nest-server',
+  expiresIn: argv.auth_expires_in || 3600,
 };
 
 export const CROSS_DOMAIN = {

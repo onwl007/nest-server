@@ -8,9 +8,10 @@ import { ConfigService } from './shared/config/config.service';
 import { HelperModule } from './shared/helper/helper.module';
 import { CorsMiddleware } from './core/middlewares/cors.middleware';
 import { OriginMiddleware } from './core/middlewares/origin.middleware';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
-  imports: [ProviderModule, ConfigModule, HelperModule],
+  imports: [ProviderModule, ConfigModule, HelperModule, AuthModule],
   controllers: [AppController],
   providers: [
     {
