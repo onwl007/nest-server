@@ -1,6 +1,6 @@
 import { Injectable, Inject, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserModelToken } from './auth.model';
+import { UserModelToken } from './user.model';
 import { Model } from 'mongoose';
 import { User } from './auth.dto';
 
