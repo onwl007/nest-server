@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, Types, model } from 'mongoose';
 import {
   getProviderByModel,
   getModelToken,
@@ -47,13 +47,13 @@ const ArticleSchema = new Schema(
     // 标签
     tag: [
       {
-        type: Schema.Types.ObjectId,
+        type: Types.ObjectId,
         ref: 'Tag',
       },
     ],
     // 分类
     category: {
-      type: Schema.Types.ObjectId,
+      type: Types.ObjectId,
       ref: 'Category',
     },
     // 来源 0 原创 | 1 转载 | 2 混撰 | 3 翻译
