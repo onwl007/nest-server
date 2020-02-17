@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as _ from 'lodash';
+import * as mongoosePaginate from 'mongoose-paginate';
 import { Logger } from 'winston';
 import {
   DB_CONNECTION_TOKEN,
@@ -42,6 +43,9 @@ export const databaseProvider = {
         error => {},
       );
     };
+
+    (mongoose as any).Promise = global.Promise;
+    mongoose.plugin(mongoosePaginate);
 
     mongoose.connection.on('connecting', () => {
       logger.info('数据库连接中...');
