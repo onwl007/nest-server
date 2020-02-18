@@ -12,7 +12,7 @@ import { ArticleService } from './article.service';
 import { Article } from './article.dto';
 import { HttpProcessor } from '../../core/decorators/http.decorator';
 
-@Controller()
+@Controller('article')
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
