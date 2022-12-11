@@ -29,7 +29,7 @@
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/passport": "^6.1.1",
-    "@nestjs/platform-express": "^6.10.13",
+    "@nestjs/platform-express": "^9.2.1",
     "@nestjs/typeorm": "^6.2.0",
     "@types/yargs": "^15.0.3",
     "akismet-api": "^5.0.0",
